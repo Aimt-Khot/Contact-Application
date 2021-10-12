@@ -13,7 +13,6 @@ namespace Contact_Application.Data
             : base(options)
         {
         }
-
         public DbSet<Contact_Application.Models.ContactViewModel> ContactViewModel { get; set; }
     }
 }

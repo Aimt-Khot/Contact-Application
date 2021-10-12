@@ -18,6 +18,5 @@ namespace Contact_Application.Models
         public string PhoneNO { get; set; }
         [Required]
         public string EmailID { get; set; }
-
     }
 }

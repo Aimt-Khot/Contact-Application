@@ -10,13 +10,11 @@ using Contact_Application.Models;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Data.SqlClient;
 using System.Data;
-
 namespace Contact_Application.Controllers
 {
     public class ContactController : Controller
     {
         private readonly IConfiguration _configuration;
-
         public ContactController(IConfiguration configuration)
         {
             this._configuration = configuration;
@@ -45,8 +43,6 @@ namespace Contact_Application.Controllers
             return View(contactViewModel);
         }
         // POST: Contact/CreateOrEdit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult CreateOrEdit(int id, [Bind("ContactID,FirstName,LastName,PhoneNO,EmailID")] ContactViewModel contactViewModel)
