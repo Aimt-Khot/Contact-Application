@@ -1,0 +1,57 @@
+﻿@model System.Data.DataTable
+
+@{
+    ViewData["Title"] = "Contacts List";
+}
+
+
+<h1>@ViewData["Title"]</h1>
+
+<th>
+    <a asp-action="CreateOrEdit">Create New</a>
+</th>
+
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>
+                FirstName
+            </th>
+            <th>
+                LastName
+            </th>
+            <th>
+                PhoneNO
+            </th>
+            <th>
+                EmailID
+            </th>
+            
+        </tr>
+    </thead>
+    <tbody>
+       @for (int i =0; i < Model.Rows.Count; i++)
+       {
+          <tr>
+            <td>
+                @Model.Rows[i]["FirstName"]
+            </td>
+            <td>
+                @Model.Rows[i]["LastName"]
+            </td>
+            <td>
+                @Model.Rows[i]["PhoneNO"]
+            </td>
+            <td>
+                @Model.Rows[i]["EmailID"]
+            </td>
+            <td>
+                <a asp-action="CreateOrEdit" asp-route-id="@Model.Rows[i]["ContactID"]">Edit</a> |                
+                <a asp-action="Delete" asp-route-id="@Model.Rows[i]["ContactID"]">Delete</a>
+            </td>
+          </tr>
+        }
+        
+    </tbody>
+</table>
